@@ -13,3 +13,9 @@ from .models import Blog_Boards
 def home(request):
 	boards = Blog_Boards.objects.all()
     	return render(request, 'home.html', {'boards': boards})
+
+#created topics function to list the topics within the board
+def blog_topics(request, pk):
+	board = Blog_Boards.objects.get(pk=pk)
+	return render(request, 'topics.html', {'board':board})
+	
