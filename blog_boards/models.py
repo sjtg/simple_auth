@@ -19,17 +19,17 @@ class Blog_Boards(models.Model):
 
 #created a topic class the handles all topics within the blog
 class Topic(models.Model):
-	#text = models.CharField(max_length=255)
+	text = models.CharField(max_length=255)
 	last_uptate = models.DateTimeField(auto_now_add=True)
-	#board = models.ForeignKey(Blog_Boards,related_name='topics')
-	#starter = models.ForeignKey(User, related_name='topics') 
+	board = models.ForeignKey(Blog_Boards,related_name='topics')
+	starter = models.ForeignKey(User, related_name='topics') 
 
 
 #created for posting blog post to the database
 class Post(models.Model):
-	#message = models.TextField(max_length=2000)
-	#topic = models.ForeignKey(Topic, related_name='posts')
-	#created_at = models.DateTimeField(auto_now_add=True)
-	#update_at = models.DateTimeField(null=True)
-	#created_by = models.ForeignKey(User, related_name='posts')
+	message = models.TextField(max_length=2000)
+	topic = models.ForeignKey(Topic, related_name='posts')
+	created_at = models.DateTimeField(auto_now_add=True)
+	update_at = models.DateTimeField(null=True)
+	created_by = models.ForeignKey(User, related_name='posts')
 	update_by = models.ForeignKey(User, null=True, related_name ='+')

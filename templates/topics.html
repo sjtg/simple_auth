@@ -10,17 +10,36 @@
 {% endblock %}
 
 {% block content %}
+<div class="mb-4">
+	<a href="{% url 'new_topics' board.pk %}" class="btn btn-primary">New topic</a>
+</div>
+
+
+<table class="table">
+	<thread class="thead-inverse">
+	<tr>
+		<th>Topic</th>
+		<th>Starter</th>
+		<th>Replies</th>
+		<th>Views</th>
+		<th>Last Update</th>
+	</tr>
+</thread>
 <tbody>
-  {% for board in boards %}
+  {% for topics in boards.topicss.all %}
     <tr>
-      <td>
+	<td>{{ topics.subject }}</td>
+      <!--<td>
         <a href="{% url 'board_topics' board.pk %}">{{ board.name }}</a>
         <small class="text-muted d-block">{{ board.description }}</small>
-      </td>
+      </td> -->
+	<td>{{ board.name }}</td>
+	<td>{{ topic.starter.username }}</td>
       <td class="align-middle">0</td>
       <td class="align-middle">0</td>
-      <td></td>
+	<td>{{ topic.last_updated }}</td>
     </tr>
   {% endfor %}
 </tbody>
+</table>
 {% endblock  %}
