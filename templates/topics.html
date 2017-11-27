@@ -28,16 +28,15 @@
 <tbody>
   {% for topics in boards.topicss.all %}
     <tr>
-	<td>{{ topics.subject }}</td>
+	<td>{{ topics.text }}</td>
       <!--<td>
         <a href="{% url 'board_topics' board.pk %}">{{ board.name }}</a>
         <small class="text-muted d-block">{{ board.description }}</small>
       </td> -->
-	<td>{{ board.name }}</td>
-	<td>{{ topic.starter.username }}</td>
+	<td>{{ topics.starter.username }}</td>
       <td class="align-middle">0</td>
       <td class="align-middle">0</td>
-	<td>{{ topic.last_updated }}</td>
+	<td>{{ topics.last_updated }}</td>
     </tr>
   {% endfor %}
 </tbody>

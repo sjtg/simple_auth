@@ -19,11 +19,11 @@
             <tr>
               <td>
                <a href ="{% url 'topics' board.pk %}"> {{ board.name }}</a>
-                <small class="text-muted d-block">{{ board.description }}</small>
+                <small class="text-muted d-block">{{ board.title }}</small>
               </td>
               <td class="align-middle">0</td>
               <td class="align-middle">0</td>
-              <td></td>
+              <td>{{ board.last_uptate }}</td>
             </tr>
           {% endfor %}
         </tbody>

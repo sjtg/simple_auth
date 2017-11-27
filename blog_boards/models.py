@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
 
 class Blog_Boards(models.Model):
 	name = models.CharField(max_length=60, unique=True)
-	title = models.CharField(max_length=100)
+	title  = models.CharField(max_length=100)
 	
 	def __str__(self):
 		return self.name
@@ -19,7 +19,7 @@ class Blog_Boards(models.Model):
 
 #created a topic class the handles all topics within the blog
 class Topic(models.Model):
-	text = models.CharField(max_length=255)
+	title = models.CharField(max_length=255)
 	last_uptate = models.DateTimeField(auto_now_add=True)
 	board = models.ForeignKey(Blog_Boards,related_name='topics')
 	starter = models.ForeignKey(User, related_name='topics') 
