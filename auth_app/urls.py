@@ -24,7 +24,7 @@ from blog_boards import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
-#    url(r'^signup/$', accounts_views.signup, name='signup'),
-    url(r'^blog_boards/(?P<pk>\d+)/$', views.blog_topics, name='blog_topics'),
-#    url(r'^blog_boards/(?P<pk>\d+)/new/$', views.new_topic, name='new_topic'),
+#   url(r'^signup/$', accounts_views.signup, name='signup'),
+    url(r'^topics/(?P<pk>\d+)/$', views.blog_topics, name='topics'),
+#   url(r'^blog_boards/(?P<pk>\d+)/new/$', views.new_topic, name='new_topic'),
 ]

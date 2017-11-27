@@ -11,6 +11,23 @@
         <li class="breadcrumb-item">Boards</li>
         <li class="breadcrumb-item active">{{ board.name }}</li>
       </ol>
+//
+ddddd
+<tbody>
+  {% for board in boards %}
+    <tr>
+      <td>
+        <a href="{% url 'board_topics' board.pk %}">{{ board.name }}</a>
+        <small class="text-muted d-block">{{ board.description }}</small>
+      </td>
+      <td class="align-middle">0</td>
+      <td class="align-middle">0</td>
+      <td></td>
+    </tr>
+  {% endfor %}
+</tbody>
+
+//
     </div>
   </body>
 </html>

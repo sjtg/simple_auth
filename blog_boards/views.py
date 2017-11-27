@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from django.http import HttpResponse
 
@@ -16,6 +16,9 @@ def home(request):
 
 #created topics function to list the topics within the board
 def blog_topics(request, pk):
-	board = Blog_Boards.objects.get(pk=pk)
+	board = get_object_or_404(Blog_Boards, pk=pk)
 	return render(request, 'topics.html', {'board':board})
 	
+
+
+
