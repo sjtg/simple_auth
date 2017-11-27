@@ -15,10 +15,13 @@ def home(request):
     	return render(request, 'home.html', {'boards': boards})
 
 #created topics function to list the topics within the board
-def blog_topics(request, pk):
+def topics(request, pk):
 	board = get_object_or_404(Blog_Boards, pk=pk)
 	return render(request, 'topics.html', {'board':board})
 	
 
-
+#created new topic function, this will show  new topics in the dashboard 
+def new_topics(request, pk):
+	board = get_object_or_404(Blog_Boards, pk=pk)
+	return render(request, 'new_topics.html', {'board' : board })
 
