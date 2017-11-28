@@ -11,9 +11,11 @@
 
 
 {% block content %}
-	<form method="post">
+	<form method="post" novalidate>
 		{% csrf_token %}
-		{{  form.as_p }}
+		
+		{% include 'includes/form.html' %}
+				
 		<button type="submit" class="btn btn-success">Post</button>
 	</form>
 {% endblock %}
