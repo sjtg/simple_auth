@@ -5,10 +5,11 @@
 	<meta charset="utf-8">
 	<title>{% block title  %}Boards {% endblock %}</title>
 	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	{% block stylesheet %}{% endblock  %}
 </head>
 
 <body>
-
+{% block body  %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	<div class="container">
 		<a class="navbar-brand" href="{% url 'home' %}">Blog Boards</a>
@@ -23,5 +24,6 @@
 	{% block content %}
 	{% endblock %}
 	</div>
+	{% endblock body  %}
 </body>
 </html>
