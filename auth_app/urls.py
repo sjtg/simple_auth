@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-#from accounts import views as account_views
+from accounts import views as accounts_views
 
 from blog_boards import views
 
@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^topics/(?P<pk>\d+)/$', views.topics, name='topics'),
     url(r'^topics/(?P<pk>\d+)/new/$', views.new_topics, name='new_topics'),
+    url(r'^signup/$', accounts_views.signup, name='signup'),
 ]
