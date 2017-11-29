@@ -28,5 +28,6 @@ urlpatterns = [
     url(r'^topics/(?P<pk>\d+)/$', views.topics, name='topics'),
     url(r'^topics/(?P<pk>\d+)/new/$', views.new_topics, name='new_topics'),
     url(r'^signup/$', accounts_views.signup, name='signup'),
-    url(r'^logout/$', auth_views.logout_view.as_view(), name="logout"),
+    url(r'^logout/$', auth_views.LogoutView.as_view(), name="logout"),
+    url(r'^login/$', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
 ]
