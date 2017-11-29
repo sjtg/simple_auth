@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 
 from accounts import views as accounts_views
 
@@ -27,4 +28,5 @@ urlpatterns = [
     url(r'^topics/(?P<pk>\d+)/$', views.topics, name='topics'),
     url(r'^topics/(?P<pk>\d+)/new/$', views.new_topics, name='new_topics'),
     url(r'^signup/$', accounts_views.signup, name='signup'),
+    url(r'^logout/$', auth_views.logout_view.as_view(), name="logout"),
 ]
