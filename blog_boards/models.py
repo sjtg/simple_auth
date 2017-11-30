@@ -7,8 +7,8 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-#created title of the blog 
 
+#created title of the blog 
 class Blog_Boards(models.Model):
 	name = models.CharField(max_length=60, unique=True)
 	title  = models.CharField(max_length=100)
