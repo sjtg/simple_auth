@@ -40,7 +40,7 @@ def new_topics(request, pk):
 				created_by = user
 			)
 
-			return redirect('topics', pk=boad.pk)
+			return redirect('topics', pk=board.pk)
 	else:
 		form = NewTopicForm()
 

@@ -11,7 +11,7 @@
 
 {% block content %}
 <div class="mb-4">
-	<a href="{% url 'new_topics' boad.pk %}" class="btn btn-primary">New topic</a>
+	<a href="{% url 'new_topics' board.pk %}" class="btn btn-primary">New topic</a>
 </div>
 
 
@@ -22,16 +22,16 @@
 		<th>Starter</th>
 		<th>Replies</th>
 		<th>Views</th>
-		<!-- <th>Last Update</th> -->
+		<th>Last Update</th>
 	</tr>
 </thread>
 <tbody>
 
-  {% for topicz in boad.topics.all %}
+  {% for topicz in board.topics.all %}
     <tr>
 	<td>{{ topicz.sub_title }}</td>
 	<td>{{ topicz.starter.username }}</td>
-      <td class="align-middle">0</td>
+      <td class="align-middle">0</td>ll
       <td class="align-middle">0</td>
 	<td>{{ topicz.last_updated }}</td>
     </tr>
