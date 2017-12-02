@@ -24,7 +24,7 @@ def topics(request, pk):
 
 #created new topic function, this will show  new topics in the dashboard
 def new_topics(request, pk):
-	boad = get_object_or_404(Blog_Boards, pk=pk)
+	board = get_object_or_404(Blog_Boards, pk=pk)
 	user = User.objects.first()
 
 	if request.method == 'POST':
@@ -35,7 +35,7 @@ def new_topics(request, pk):
 			topic.starter = user
 			topic.save()
 			post = Post.objects.create(
-				message = form.cleaned_date.get('message'),
+				message = form.cleaned_data.get('message'),
 				topic = topic,
 				created_by = user
 			)
@@ -44,4 +44,4 @@ def new_topics(request, pk):
 	else:
 		form = NewTopicForm()
 
-	return render(request, 'new_topics.html', {'boad' : boad, 'form':form })
+	return render(request, 'new_topics.html', {'board' : board, 'form':form })
