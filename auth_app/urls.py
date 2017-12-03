@@ -30,6 +30,8 @@ urlpatterns = [
     url(r'^signup/$', accounts_views.signup, name='signup'),
     url(r'^logout/$', auth_views.LogoutView.as_view(), name="logout"),
     url(r'^login/$', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    url(r'^topics/(?P<pk>\d+)/subtopic/(?P<topic_pk>\d+)/$', views.topic_posts, name='topic_posts'),
+    url(r'^topics/(?P<pk>\d+)/subtopic/(?P<topic_pk>\d+)/reply/$', views.reply_topic, name='reply_topic'),
     url(r'^reset/$',
         auth_views.PasswordResetView.as_view(
             template_name='password_reset.html',

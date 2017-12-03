@@ -29,7 +29,7 @@
 
   {% for topicz in board.topics.all %}
     <tr>
-	<td>{{ topicz.sub_title }}</td>
+	<td><a href="{% url 'topic_posts' board.pk topicz.pk %}">{{ topicz.sub_title }}</a></td>
 	<td>{{ topicz.starter.username }}</td>
       <td class="align-middle">0</td>
       <td class="align-middle">0</td>
