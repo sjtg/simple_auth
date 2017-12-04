@@ -18,7 +18,7 @@ class Blog_Boards(models.Model):
 	def __str__(self):
 		return self.name
 
-	def get_posts_counts(self):
+	def get_posts_count(self):
 		return Post.objects.filter(topic__board=self).count()
 
 	def get_last_post(self):
