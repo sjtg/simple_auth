@@ -27,13 +27,13 @@
 </thread>
 <tbody>
 
-  {% for topicz in board.topics.all %}
+  {% for topic in topics  %}
     <tr>
-	<td><a href="{% url 'topic_posts' board.pk topicz.pk %}">{{ topicz.sub_title }}</a></td>
-	<td>{{ topicz.starter.username }}</td>
-      <td class="align-middle">0</td>
-      <td class="align-middle">0</td>
-	<td>{{ topicz.last_updated }}</td>
+	<td><a href="{% url 'topic_posts' board.pk topic.pk %}">{{ topic.sub_title }}</a></td>
+	<td>{{ topic.starter.username }}</td>
+      <td>{{ topic.replies}}</td>
+      <td> {{topic.views}}</td>
+	<td></td>
     </tr>
   {% endfor %}
 </tbody>
