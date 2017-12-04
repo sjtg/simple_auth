@@ -28,7 +28,7 @@ class Blog_Boards(models.Model):
 #created a topic class the handles all topics within the blog
 class Topic(models.Model):
 	sub_title = models.CharField(max_length=255)
-	last_uptated = models.DateTimeField(auto_now_add=True)
+	last_updated = models.DateTimeField(auto_now_add=True)
 	board = models.ForeignKey(Blog_Boards,related_name='topics')
 	starter = models.ForeignKey(User, related_name='topics')
 	views = models.PositiveIntegerField(default=0)
