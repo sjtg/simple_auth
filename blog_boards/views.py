@@ -11,6 +11,7 @@ from .forms import NewTopicForm, PostForm
 
 from .models import Blog_Boards, Topic, Post
 
+from django.db.models import Count
 
 # Create your views here.
 
@@ -22,7 +23,8 @@ def home(request):
 #created topics function to list the topics within the board
 def topics(request, pk):
 	board = get_object_or_404(Blog_Boards, pk=pk)
-	return render(request, 'topics.html', {'board':board})
+	topics = board.topics.order_by('-last_updated').annotate(replies=Count('posts') - 1)
+	return render(request, 'topics.html', {'board':board, 'topics' : topics})
 
 
 #created new topic function, this will show  new topics in the dashboard
@@ -44,7 +46,7 @@ def new_topics(request, pk):
 				created_by = request.user
 			)
 
-			return redirect('topics_posts', pk=pk, topic_pk=topic.pk)
+			return redirect('topic_posts', pk=pk, topic_pk=topic.pk)
 	else:
 		form = NewTopicForm()
 
