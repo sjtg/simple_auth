@@ -3,8 +3,10 @@
 
 {% block content %}
 
-	<form method="get">
-		{{ filter.form.as_p }}
+	<form method="get" novalidate>
+		{{filter.form.as_p}}
+		{% include 'includes/form.html' %}
+
 		<button type="submit" class="btn btn-success">Search</button>
 	</form>
 	<ul>
