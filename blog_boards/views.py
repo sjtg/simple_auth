@@ -13,6 +13,8 @@ from .models import Blog_Boards, Topic, Post
 
 from django.db.models import Count
 
+from .filters import UserFilter
+
 # Create your views here.
 
 #home view page
@@ -74,3 +76,10 @@ def reply_topic(request, pk, topic_pk):
 	else:
 		form = PostForm()
 	return render(request, 'reply_topic.html', {'topic' : topic, 'form':form})
+
+
+#created a search function 
+def search(request):
+	user_list = User.objects.all()
+	user_filter = UserFilter(request.GET, queryset=user_list)
+	return render(request, 'user_list.html', {'filter': user_filter})
