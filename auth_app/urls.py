@@ -26,6 +26,7 @@ from blog_boards import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^settings/account/$', accounts_views.UserUpdateView.as_view(), name='my_account'),
     url(r'^$', views.home, name='home'),
     url(r'^topics/(?P<pk>\d+)/$', views.topics, name='topics'),
     url(r'^topics/(?P<pk>\d+)/new/$', views.new_topics, name='new_topics'),

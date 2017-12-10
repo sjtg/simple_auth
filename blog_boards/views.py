@@ -13,6 +13,12 @@ from .models import Blog_Boards, Topic, Post
 
 from django.db.models import Count
 
+#from django.utils.decorators import method_decorator
+
+#from django.views.generic import UpdateView
+
+#from django.urls import reverse_lazy
+
 from .filters import UserFilter
 
 # Create your views here.
@@ -83,3 +89,6 @@ def search(request):
 	user_list = User.objects.all()
 	user_filter = UserFilter(request.GET, queryset=user_list)
 	return render(request, 'user_list.html', {'filter': user_filter})
+
+
+
